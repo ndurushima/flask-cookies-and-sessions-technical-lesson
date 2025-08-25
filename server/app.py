@@ -16,8 +16,16 @@ def show_session(key):
     if key == "count":
         session["count"] += 1
 
+    response = make_response(jsonify({
+        'session': {
+            'session_key': key,
+            'session_value': session[key],
+            'session_accessed': session.accessed,
+        },
+        'cookies': [{cookie: request.cookies[cookie]} for cookie in request.cookies],
+    }), 200)
 
-
+    return response
 
 
 if __name__ == '__main__':

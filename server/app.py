@@ -13,6 +13,9 @@ def show_session(key):
     session["goodnight"] = session.get("goodnight") or "Moon"
     session["count"] = session.get("count") or 0
 
+    if key == "count":
+        session["count"] += 1
+
 
 
 

@@ -7,6 +7,14 @@ app.secret_key = b'?w\x85Z\x08Q\xbdO\xb8\xa9\xb65Kj\xa9_'
 
 # Build Routes
 
+@app.route('/sessions/<string:key>', methods=['GET'])
+def show_session(key):
+    pass
+
+
+
+
+
 if __name__ == '__main__':
     app.run(port=5555)
     

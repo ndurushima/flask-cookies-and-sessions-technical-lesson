@@ -27,6 +27,18 @@ def show_session(key):
 
     return response
 
+@app.route('/crumbs', methods=['GET'])
+def follow_crumbs():
+    response = make_response(jsonify({
+        'cookies': [{cookie: request.cookies[cookie]}
+            for cookie in request.cookies],
+        'message': 'mouse successfully followed crumbs'
+    }), 200)
+
+    response.set_cookie('mouse', 'Cookie')
+
+    return response
+
 
 if __name__ == '__main__':
     app.run(port=5555)
